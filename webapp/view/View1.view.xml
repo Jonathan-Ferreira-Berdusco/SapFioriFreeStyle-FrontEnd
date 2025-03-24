@@ -1,7 +1,79 @@
-<mvc:View controllerName="zov.controller.View1"
-    xmlns:mvc="sap.ui.core.mvc"
+<mvc:View xmlns:table="sap.ui.table" controllerName="zov.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
-        
+
+        <!-- Botão com comando press, tratativa da func na View1.controller.js -->
+        <Button id="button1" text="Click Aqui!" press="onPress"/>
+
+        <VBox id="BuscaCliente" class="sapUiTinyMargin">
+            <Label id="SearchIDCliente" text="ID do Cliente"></Label>
+            <Input id="InputIDCliente"></Input>
+        </VBox>
+
+        <!-- Expecificações da tabela -->
+        <table:Table id="tabela1"
+            rows="{/OVcabecalhoSet}" 
+            threshold="10"
+            class="sapUiTinyMargin"
+            selectionMode="MultiToggle">
+
+            <!-- Título da Tabela -->
+            <table:extension>
+                <OverflowToolbar id="OverFlowToolbar1"> 
+                    <Title id="title" text="Ordens"></Title>
+                </OverflowToolbar>
+            </table:extension>
+
+           <table:columns>
+                <!-- Coluna do ID da Ordem -->
+                <table:Column id="OrdemID1" width="10rem" sortProperty="OrdemID">
+                    <Label id="Label1" text="OrdemID"></Label>
+                    <table:template>
+                        <Text id="Text1" text="{OrdemID}" wrapping="false"></Text>
+                    </table:template>
+                </table:Column>
+
+                <!-- Coluna do ID do Cliente -->
+                <table:Column id="ClienteID1" width="10rem" sortProperty="ClienteID" filterProperty="ClienteID" autoResizable="true">
+                    <Label id="Label2" text="ID do Cliente" ></Label>
+                    <table:template>
+                        <Text id="Text2" text="{ClienteID}" wrapping="false"></Text>
+                    </table:template>
+                </table:Column>
+                
+                <!-- Coluna do Total Itens -->
+                <table:Column id="TotalItens1" width="10rem" sortProperty="TotalItens" filterProperty="TotalItens" autoResizable="true" >
+                    <Label id="Label3" text="Total Itens"></Label>
+                    <table:template>
+                        <Text id="Text3" text="{TotalItens}" wrapping="false"></Text>
+                    </table:template>
+                </table:Column>
+
+                <!-- Coluna do Total do Frete -->
+                <table:Column id="TotalFrete1" width="10rem" sortProperty="TotalFrete" filterProperty="TotalFrete" autoResizable="true" >
+                    <Label id="Label4" text="Total Frete"></Label>
+                    <table:template>
+                        <Text id="Text4" text="{TotalFrete}" wrapping="false"></Text>
+                    </table:template>
+                </table:Column>
+
+                <!-- Coluna do Total da Ordem -->
+                <table:Column id="TotalOrdem1" width="10rem" sortProperty="TotalOrdem" filterProperty="TotalOrdem" autoResizable="true" >
+                    <Label id="Label5" text="Total da Ordem"></Label>
+                    <table:template>
+                        <Text id="Text5" text="{TotalOrdem}" wrapping="false"></Text>
+                    </table:template>
+                </table:Column>
+
+                <!-- Coluna do Status da Ordem -->
+                <table:Column id="Status1" width="5rem" sortProperty="Status" filterProperty="Status" autoResizable="true" >
+                    <Label id="Label6" text="Status"></Label>
+                    <table:template>
+                        <Text id="Text6" text="{Status}" wrapping="false"></Text>
+                    </table:template>
+                </table:Column>
+           </table:columns>        
+        </table:Table>
     </Page>
 </mvc:View>
